@@ -4,6 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,7 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -33,7 +35,17 @@ const Navbar = () => {
           <span className="logo-text">Tu Marca</span>
         </a>
         
-        <div className="navbar-links">
+        <button 
+          className={`navbar-hamburger ${mobileMenuOpen ? 'is-active' : ''}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`navbar-links ${mobileMenuOpen ? 'is-open' : ''}`}>
           <button onClick={() => scrollToSection('servicios')} className="navbar-link">
             Servicios
           </button>

@@ -139,5 +139,17 @@
     flex-direction: column;
     align-items: flex-start;
   }
+  
+  .services-card {
+    padding: 1rem;
+  }
+  
+  .services-cardTitle {
+    font-size: 1.1rem;
+  }
+  
+  .services-cardValue {
+    font-size: 0.9rem;
+  }
 }
 

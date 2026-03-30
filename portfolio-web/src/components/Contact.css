@@ -153,6 +153,12 @@
   color: var(--text-muted);
 }
 
+@media (max-width: 768px) {
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 500px) {
   .contact-whatsapp {
     padding: 0.875rem;
@@ -166,5 +172,22 @@
   
   .whatsapp-arrow {
     display: none;
+  }
+  
+  .whatsapp-text h3 {
+    font-size: 1rem;
+  }
+  
+  .whatsapp-text p {
+    font-size: 0.75rem;
+  }
+  
+  .socials-grid {
+    gap: 0.75rem;
+  }
+  
+  .social-link {
+    width: 44px;
+    height: 44px;
   }
 }

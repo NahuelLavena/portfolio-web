@@ -186,6 +186,12 @@
   color: rgba(232, 244, 253, 0.72);
 }
 
+@media (max-width: 768px) {
+  .project-slide {
+    width: clamp(260px, 85vw, 560px);
+  }
+}
+
 @media (max-width: 560px) {
   .projects-carouselTop {
     flex-direction: column;
@@ -194,5 +200,32 @@
 
   .projects-progressBar {
     width: 100%;
+  }
+  
+  .projects-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .projects-arrow {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .project-body {
+    padding: 0.875rem;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+  }
+  
+  .project-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
   }
 }
