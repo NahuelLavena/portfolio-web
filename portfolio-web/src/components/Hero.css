@@ -130,14 +130,16 @@
 .hero-window {
   width: 100%;
   max-width: 420px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.5),
-    0 0 40px -15px var(--accent-glow);
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 60px -20px rgba(96, 165, 250, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
 }
 
 .hero-window::before {
@@ -156,8 +158,8 @@
   align-items: center;
   gap: 12px;
   padding: 0.875rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.35) 100%);
+  border-bottom: 1px solid rgba(96, 165, 250, 0.1);
   position: relative;
 }
 
@@ -178,14 +180,24 @@
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
+  position: relative;
 }
 
-.dot.red { background: #ff5f57; box-shadow: 0 0 6px rgba(255, 95, 87, 0.4); }
-.dot.yellow { background: #febc2e; box-shadow: 0 0 6px rgba(254, 188, 46, 0.4); }
-.dot.green { background: #28c840; box-shadow: 0 0 6px rgba(40, 200, 64, 0.4); }
+.dot.red { 
+  background: #ff5f57; 
+  box-shadow: 0 0 8px rgba(255, 95, 87, 0.5), inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+.dot.yellow { 
+  background: #febc2e; 
+  box-shadow: 0 0 8px rgba(254, 188, 46, 0.5), inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+.dot.green { 
+  background: #28c840; 
+  box-shadow: 0 0 8px rgba(40, 200, 64, 0.5), inset 0 -2px 4px rgba(0,0,0,0.2);
+}
 
 .window-title {
   font-size: 0.75rem;
@@ -199,32 +211,45 @@
 
 .window-tabs {
   display: flex;
-  gap: 0.25rem;
-  padding: 0.35rem 0.5rem;
-  background: rgba(0, 0, 0, 0.22);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.12);
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  background: rgba(15, 23, 42, 0.45);
+  border-bottom: 1px solid rgba(96, 165, 250, 0.08);
+  position: relative;
+}
+
+.window-tabs::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(96, 165, 250, 0.15) 50%, transparent 100%);
 }
 
 .window-tab {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.75rem;
-  color: rgba(232, 244, 253, 0.68);
-  padding: 0.4rem 0.6rem;
-  border-radius: 999px;
+  font-size: 0.72rem;
+  color: rgba(148, 163, 184, 0.7);
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
   border: 1px solid transparent;
-  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .window-tab:hover {
-  background: rgba(19, 27, 46, 0.45);
-  border-color: rgba(59, 130, 246, 0.12);
-  color: rgba(232, 244, 253, 0.85);
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(96, 165, 250, 0.15);
+  color: rgba(226, 232, 240, 0.85);
 }
 
 .window-tab.is-active {
-  background: rgba(19, 27, 46, 0.75);
-  border-color: rgba(59, 130, 246, 0.18);
-  color: rgba(232, 244, 253, 0.92);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(96, 165, 250, 0.1) 100%);
+  border-color: rgba(96, 165, 250, 0.25);
+  color: rgba(224, 242, 254, 0.95);
+  box-shadow: 0 2px 8px rgba(96, 165, 250, 0.15);
 }
 
 .window-tab:focus-visible {
@@ -233,7 +258,7 @@
 }
 
 .window-body {
-  padding: 1rem 1.1rem 0.9rem;
+  padding: 1.1rem 1.25rem 1rem;
   position: relative;
 }
 
@@ -243,27 +268,29 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
-  background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+  height: 80px;
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.06) 0%, transparent 100%);
   pointer-events: none;
 }
 
 .code-area {
   max-height: 320px;
   overflow: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(59, 130, 246, 0.12);
-  background: rgba(10, 14, 23, 0.35);
+  border-radius: 12px;
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  background: linear-gradient(145deg, rgba(10, 14, 23, 0.6) 0%, rgba(15, 23, 42, 0.45) 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hero-code {
   margin: 0;
-  font-family: 'Consolas', 'Monaco', monospace;
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: rgba(232, 244, 253, 0.74);
+  font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.72;
+  color: rgba(226, 232, 240, 0.8);
   position: relative;
-  padding: 0.9rem 0.95rem;
+  padding: 1rem 1.1rem;
+  letter-spacing: 0.01em;
 }
 
 .code-row {
@@ -283,52 +310,65 @@
 }
 
 .code-tag { 
-  color: #60a5fa; 
+  color: #7dd3fc; 
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.3);
 }
 
 .code-attr {
-  color: rgba(196, 181, 253, 0.9);
+  color: #c4b5fd;
+  text-shadow: 0 0 6px rgba(196, 181, 253, 0.25);
 }
 
 .code-keyword { 
-  color: #c084fc; 
+  color: #e879f9; 
+  text-shadow: 0 0 8px rgba(232, 121, 249, 0.3);
 }
 
 .code-comment { 
-  color: #4a6178; 
+  color: #64748b; 
   font-style: italic; 
 }
 
 .code-function { 
   color: #22d3ee; 
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.35);
 }
 
 .code-string {
-  color: #34d399;
+  color: #4ade80;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.3);
 }
 
 .code-text {
-  color: rgba(232, 244, 253, 0.86);
+  color: rgba(241, 245, 249, 0.9);
 }
 
 .window-footer {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 0.75rem;
-  opacity: 0.85;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(96, 165, 250, 0.08);
 }
 
 .window-pill {
-  font-size: 0.7rem;
-  font-weight: 650;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(232, 244, 253, 0.62);
-  padding: 0.28rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid rgba(59, 130, 246, 0.12);
-  background: rgba(19, 27, 46, 0.35);
+  color: rgba(148, 163, 184, 0.75);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  background: rgba(30, 41, 59, 0.4);
+  transition: all 0.2s ease;
+}
+
+.window-pill:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(96, 165, 250, 0.25);
+  color: rgba(224, 242, 254, 0.9);
 }
 
 .hero-floater {
